@@ -1,3 +1,5 @@
+// Myer's diff algorithm: http://www.xmailserver.org/diff2.pdf
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
