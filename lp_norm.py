@@ -12,13 +12,13 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 
-def render(output: str = "lp_avatar.png", size: int = 2048) -> None:
+def render(output: str = "lp_norm.png", size: int = 2048) -> None:
     scale = 3  # Supersampling keeps the curves smooth at avatar sizes.
     canvas = Image.new("RGB", (size * scale, size * scale), "white")
     draw = ImageDraw.Draw(canvas)
     center = size * scale / 2
     radius = size * scale * 0.335  # Keep square corners inside a circular crop.
-    stroke = round(size * scale * 0.018)
+    stroke = round(size * scale * 0.03)
     theta = np.linspace(0, 2 * np.pi, 8192, endpoint=False)
     directions = np.stack((np.cos(theta), np.sin(theta)), axis=1)
     directions[np.abs(directions) < 1e-14] = 0
